@@ -206,8 +206,50 @@
 // app.listen(port, () => {
 //   console.log(`Server is running on port ${port}`);
 // });
+
+//***** */
+// const express = require("express");
+// const mongoose = require("mongoose");
+// require("dotenv").config();
+
+// const userRoutes = require("./routes/userRoutes");
+// const todoRoutes = require("./routes/todoRoutes");
+
+// const app = express();
+// const port = process.env.PORT || 3000;
+
+// // Middleware
+// app.use(express.json());
+
+// // MongoDB Connection
+// mongoose
+//   .connect(process.env.MONGODB_URI)
+//   .then(() => console.log("Connected to MongoDB"))
+//   .catch((err) => console.error("MongoDB connection error:", err));
+
+// // Routes
+// app.use("/users", userRoutes);
+// app.use("/todos", todoRoutes);
+
+// // Error handling middleware
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(500).json({ error: "Something went wrong!" });
+// });
+
+// // 404 handler
+// app.use((req, res) => {
+//   res.status(404).json({ error: "Route not found" });
+// });
+
+// app.listen(port, () => {
+//   console.log(`Server is running on port ${port}`);
+// });
+/** */
 const express = require("express");
 const mongoose = require("mongoose");
+const swaggerUi = require("swagger-ui-express");
+const specs = require("./swagger");
 require("dotenv").config();
 
 const userRoutes = require("./routes/userRoutes");
@@ -224,6 +266,9 @@ mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
+
+// Swagger UI
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 // Routes
 app.use("/users", userRoutes);
@@ -242,4 +287,7 @@ app.use((req, res) => {
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+  console.log(
+    `Swagger documentation available at http://localhost:${port}/api-docs`
+  );
 });
