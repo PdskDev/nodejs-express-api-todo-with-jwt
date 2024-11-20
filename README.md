@@ -65,22 +65,15 @@ Swagger documentation is available at: http://localhost:3000/api-docs
 
 #### Users (Admin only)
 - GET /users - Get all users
-
 - POST /users - Create a new user
-
 - PUT /users/:id - Update a user
-
 - DELETE /users/:id - Delete a user
 
 #### Todos
 - GET /todos - Get all todos (Admin: all todos, User: own todos)
-
 - POST /todos - Create a new todo
-
 - GET /todos/:id - Get a specific todo
-
 - PUT /todos/:id - Update a todo
-
 - DELETE /todos/:id - Delete a todo
 
 ### Project Structure:
@@ -103,7 +96,7 @@ project/
 └── .env
 ```
 
-### Authentication
+## Authentication
 The API uses JWT (JSON Web Tokens) for authentication. To access protected endpoints:
 
 - Get a token by logging in
@@ -114,65 +107,50 @@ Authorization: Bearer <your_token_here>
 ## Models
 ### User
 - name: String (required)
-
 - email: String (required, unique)
-
 - password: String (required)
-
 - role: String (enum: 'user', 'admin')
-
 - isActive: Boolean
 
 ### Todo
 - title: String (required)
-
 - description: String (required)
-
 - completed: Boolean
-
 - user: Reference to User model
 
-### Error Handling
+## Error Handling
 The API includes comprehensive error handling for:
 
 - Validation errors
-
 - Authentication errors
-
 - Authorization errors
-
 - Not found errors
-
 - Server errors
 
 ## Development
 Available Scripts
-- npm start - Run the application
 
-- npm run dev - Run the application with nodemon for development
+```bash
+ npm start - Run the application
+ ```
+
+```bash
+npm run dev - Run the application with nodemon for development
+ ```
 
 ## Security Features
 - Password hashing using bcryptjs
-
 - JWT token authentication
-
 - Role-based access control
-
 - Request validation
-
 - Protected routes
-
 - Environment variables for sensitive data
 
 ## Contributing
 - Fork the repository
-
 - Create your feature branch ( git checkout -b feature/amazing-feature)
-
 - Commit your changes ( git commit -m 'Add some amazing feature')
-
 - Push to the branch ( git push origin feature/amazing-feature)
-
 - Open a Pull Request
 
 ## License
@@ -182,12 +160,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Nadet LAMBI-BIDZIMOU (NadetDev)
 
 ## Acknowledgments
+- Node.js
 - Express.js
-
 - MongoDB
-
 - Mongoose
-
 - JWT
-
 - Swagger UI
