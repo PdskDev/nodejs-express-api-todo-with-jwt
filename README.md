@@ -35,11 +35,11 @@ npm install
 ``` 
 
 ### 3. Create a .env file in the root directory:
-
+```bash
 PORT=3000
 MONGODB_URI=mongodb://localhost:27017/todo-app
 JWT_SECRET=your_jwt_secret_key_here
-
+```
 ## Running the Application
 
 ###  Development mode:
